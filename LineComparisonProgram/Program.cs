@@ -29,11 +29,14 @@ namespace LineComparisonProgram
             {
                 Console.WriteLine("The two lines are equal in length.");
             }
+            else if(length1>length2)
+            {
+                Console.WriteLine("The first line is greater than second .");
+            }
             else
             {
-                Console.WriteLine("The two lines are not equal in length.");
+                Console.WriteLine("The first line is shorter than second .");
             }
-
             Console.ReadLine();
         }
 
