@@ -10,25 +10,40 @@ namespace LineComparisonProgram
     {
         static void Main(string[] args)
         {
-            // Initialize variables
-            int x1, y1, x2, y2, deltaX, deltaY, lengthSquared, length;
+            int x1, y1, x2, y2, a1, b1, a2, b2;
             Console.WriteLine("Welcome to Line Comparison Program");
-            // Input two points
-            Console.WriteLine("Enter the first point (x1, y1):");
-            x1 = int.Parse(Console.ReadLine());
-            y1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the second point (x2, y2):");
-            x2 = int.Parse(Console.ReadLine());
-            y2 = int.Parse(Console.ReadLine());
-            // Calculate the length of the line
-            deltaX = x2 - x1;
-            deltaY = y2 - y1;
-            lengthSquared = deltaX * deltaX + deltaY * deltaY;
-            length = (int)Math.Sqrt(lengthSquared);
-            // Output the result
-            Console.WriteLine($"The length of the line is {length}");
+            Console.WriteLine("Enter the first line coordinates (x1, y1, x2, y2):");
+            x1 = Convert.ToInt32(Console.ReadLine());
+            y1 = Convert.ToInt32(Console.ReadLine());
+            x2 = Convert.ToInt32(Console.ReadLine());
+            y2 = Convert.ToInt32(Console.ReadLine());
+            int length1 = CalculateLength(x1, y1, x2, y2);
+            Console.WriteLine("Enter the second line coordinates (a1, b1, a2, b2):");
+            a1 = Convert.ToInt32(Console.ReadLine());
+            b1 = Convert.ToInt32(Console.ReadLine());
+            a2 = Convert.ToInt32(Console.ReadLine());
+            b2 = Convert.ToInt32(Console.ReadLine());
+            int length2 = CalculateLength(a1, b1, a2, b2);
+
+            if (length1 == length2)
+            {
+                Console.WriteLine("The two lines are equal in length.");
+            }
+            else
+            {
+                Console.WriteLine("The two lines are not equal in length.");
+            }
+
             Console.ReadLine();
         }
-    }
 
+        static int CalculateLength(int x1, int y1, int x2, int y2)
+        {
+            int deltaX = x2 - x1;
+            int deltaY = y2 - y1;
+            int lengthSquared = deltaX * deltaX + deltaY * deltaY;
+            int length = (int)Math.Sqrt(lengthSquared);
+            return length;
+        }
+    }
 }
